@@ -115,8 +115,6 @@ function update_covar(covar, coef, cats, len, rows, cols){
 		this.legw = d3Params.w/3.5;
 		this.legh = d3Params.h/2.5;
 	
-        this.grid = d3.select('#'+d3Params.id)
-            .append('svg')
         this.grid = d3.select('#' + d3Params.id + ' svg')
             .attr('width', this.w)
             .attr('height', this.h)
