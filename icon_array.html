@@ -311,6 +311,9 @@ function DemoCtrl($scope){
   $scope.controls = {{{ controls_json }}} 
   $scope.filters = {{{ filters_json }}}
   
+  $scope.opts2 = _.zipObject(_.keys($scope.controls), _.pluck($scope.controls, "value"))
+  _.merge($scope.opts, $scope.opts2)
+  
   $scope.drawChart = function(){
 	update($scope.opts)
   }
