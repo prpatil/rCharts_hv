@@ -18,7 +18,7 @@ hv <- setRefClass('hv', contains = 'rCharts', methods = list(
   addControls = function(nm, value, values, label = paste("Select ", nm, ":")){
     .self$setTemplate(
       page = 'rChartControls2.html',
-      script = 'C:/Users/Prasad/Documents/Research/rCharts/icon_array.html'
+      script = 'icon_array.html'
     )
     #.self$set(width = 700)
     control = list(name = nm, value = value, values = values, label = label)

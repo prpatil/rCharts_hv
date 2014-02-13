@@ -1,3 +1,8 @@
+<style>
+  .container{margin-top: 20px;} 
+  .rChart{height: 500px;}
+</style>
+
 <div class='container' ng-controller="DemoCtrl">
   <div class='row'>
     <div class='col-md-3'>
@@ -110,8 +115,7 @@ function update_covar(covar, coef, cats, len, rows, cols){
 		this.legw = d3Params.w/3.5;
 		this.legh = d3Params.h/2.5;
 	
-        this.grid = d3.select('#'+d3Params.id)
-            .append('svg')
+        this.grid = d3.select('#' + d3Params.id + ' svg')
             .attr('width', this.w)
             .attr('height', this.h)
 	    .attr('class', 'chart');
@@ -309,6 +313,9 @@ function DemoCtrl($scope){
   $scope.opts = {{{ opts }}}
   $scope.controls = {{{ controls_json }}} 
   $scope.filters = {{{ filters_json }}}
+  
+  $scope.opts2 = _.zipObject(_.keys($scope.controls), _.pluck($scope.controls, "value"))
+  _.merge($scope.opts, $scope.opts2)
   
   $scope.drawChart = function(){
 	update($scope.opts)
