@@ -83,8 +83,7 @@ function HealthvisIconArray() {
 		this.legw = this.w/3.5;
 		this.legh = this.h/2.5;
 	
-        this.grid = d3.select('#main')
-            .append('svg')
+        this.grid = d3.select('.rChart svg')
             .attr('width', this.w)
             .attr('height', this.h)
 	    .attr('class', 'chart');
