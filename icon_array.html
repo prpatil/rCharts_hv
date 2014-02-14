@@ -253,21 +253,21 @@ function update_covar(covar, coef, cats, len, rows, cols){
 			this.covar[0] = 1;
 		
 			// Set the covariates correctly
-			for (var j=0; j<this.vtype.length; j++) {
+			for (var j=1; j<=this.vtype.length; j++) {
 				// this is temporary until we get the values to sit in the form from the outset
-				if(opts[this.labels[j]] == "undefined"){
+				if(opts[this.labels[j-1]] == "undefined"){
 					this.covar = Array.apply(null, new Array(this.cats.length)).map(Number.prototype.valueOf,0);
 					this.covar[0] = 1;
 					break;
 				}
-				if(this.vtype[j] == "factor"){
-					if(opts[this.labels[j]] == this.ref_cats[j]){
+				if(this.vtype[j-1] == "factor"){
+					if(opts[this.labels[j-1]] == this.ref_cats[j-1]){
 						this.covar[j] = 1;
 					} else {
 						this.covar[j] = 0;
 					}
 				} else {
-					this.covar[j] = opts[this.labels[j]];
+					this.covar[j] = opts[this.labels[j-1]];
 				}
 			}
 			
